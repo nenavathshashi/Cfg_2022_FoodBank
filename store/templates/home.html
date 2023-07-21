@@ -1,0 +1,1492 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+
+
+<link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+  <script src="https://kit.fontawesome.com/b972bf4b3e.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
+    .nav-bg{
+        background: #01090e99;
+    }
+    .navbar-nav .nav-link{
+        color:#fff!important;
+    }
+    .navbar-toggler{
+        outline:none!important;
+    }
+    /*---Hero---*/
+    #hero{
+        width:100%;
+        height: 100vh;
+        overflow:hidden;
+        position: relative;
+    }
+    #hero:after{
+        content:'';
+        position:absolute;
+        left:50%;
+        top:0;
+        width:130%;
+        height:95%;
+        background:linear-gradient(to right,rgba(228, 74, 13, 0.928),rgba(222, 187, 13, 0.4)),url("")center top no-repeat;/*image-size 1920H 1080W*/
+        z-index:0;
+        border-radius: 0 0 50% 50%;
+        transform:translateX(-50%) rotate(0deg);
+    }
+    #hero:before{
+        content:'';
+        position: absolute;
+        left:50%;
+        top:0;
+        width:130%;
+        height:96%;
+        background:rgba(211, 107, 9, 0.8);
+        opacity:0.3;
+        z-index:0;
+        border-radius:0 0 50% 50%;
+        transform: translateX(-50%)translateY(18px)rotate(2deg);
+    }
+    #hero .carousel-container{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        flex-direction:column;
+        text-align:center;
+        bottom:0;
+        top:0;
+        left:0;
+        right:0;
+    }
+    #hero h2{
+        color:#fff;
+        margin-bottom:30px;
+        font-size:48px;
+        font-weight:bold;
+    }
+    #hero p{
+        width:80%;
+        animation-delay:0.4s;
+        margin:0 auto 30px auto;
+        color:#fff;
+    }
+    #hero .carousel-control-prev, 
+    #hero .carousel-control-next{
+        width:10%;
+    }
+    #hero .carousel-control-next-icon,
+    #hero .carousel-control-prev-icon{
+        background:none;
+        font-size:48px;
+        line-height:1;
+        width:auto;
+        height: auto;
+    }
+    #hero .hero-btn{
+        font-weight:bold;
+        font-size:16px;
+        letter-spacing:1px;
+        display:inline-block;
+        padding:12px 32px;
+        border-radius:50px;
+        transition:0.5s;
+        line-height:1;
+        margin:10px;
+        color:#fff;
+        animation-delay:0.5s;
+        border:2px solid #0888e3;
+    }
+    #hero .hero-btn:hover{
+        background:#da6703;
+        color:#fff;
+        text-decoration:none;
+    }
+    @media(min-width:1024px){
+        #hero p{
+            width:60%;
+        }
+        #hero .carousel-control-prev,
+        #hero .carousel-control-next{
+            width:5%;
+        }
+    }
+    @media(max-width:768px){
+        #hero h2{
+            font-size:28px;
+        }
+        #hero:after{
+            width:180%;
+            height:95%;
+            border-radius:0 0 50% 50%;
+            transform:translateX(-50%)rotate(0deg);
+        }
+        #hero:before{
+            top:0;
+            width:180%;
+            height:94%;
+            border-radius: 0 0 50% 50%;
+            transform: translateX(-50%)translateY(20px)rotate(4deg);
+        }
+    }
+    @media(max-width:575px){
+        #hero:after{
+            left:40%;
+            top:0;
+            width:200%;
+            height:95%;
+            border-radius: 0 0 50% 50%;
+            transform: translateX(-50%)rotate(0deg);
+        }
+        #hero:before{
+            left:50%;
+            top:0;
+            width:200%;
+            height:94%;
+            border-radius: 0 0 50% 50%;
+            transform: translateX(-50%)translateY(20px)rotate(4deg);
+    
+        }
+    }
+    /*--End of Hero---*/
+    /*======About Us=========*/
+    .tabs .nav-pills .nav-item{
+        margin-bottom: 10px;
+    }
+    .tabs .nav-pills .nav-item .nav-link{
+        background:#fff;
+        border-radius:4px;
+        color:#000;
+        font-weight:bold;
+        border:1px solid rgba(192, 82, 4, 0.6);
+        font-size:20px;
+        line-height: 30px;
+    }
+    .tabs .nav-pills .nav-item .nav-link span{
+        color:#b24404;
+        font-size:30px;
+    }
+    .tabs .nav-pills .nav-item .nav-link.active{
+        color:#fff;
+        background:#024e71;
+        border:1px solid #d56a05;
+    }
+    .tabs .nav-pills .nav-item .nav-link.active span{
+        color:#fff;
+    }
+    .tabs .tab-content{
+        background:#fff;
+        padding:0;
+    }
+    .tabs .tab-content .img{/*images-size for this section 1000 x 667 */
+        width:100%;
+        height:400px;
+        margin-bottom:20px;
+    }
+    .tabs .tab-content h3{
+        font-weight:bold;
+    
+    }
+    .tabs .tab-content h3 a{
+        color:#000;
+    }
+    /*======End of About Us=========*/
+    /*========Stories========*/
+    .story-box{
+        padding:15px;
+        background:#dd6a0c;
+        margin-bottom:30px;
+        position:relative;
+    }
+    .story-icon{
+        width:90px;
+        height:90px;
+        text-align:center;
+        line-height: 90px;
+    }
+    .story-icon i{
+        font-size:50px;
+        color:#fff;
+        mix-blend-mode: difference;
+    }
+    
+    .story-box h2{
+        font-size:24px;
+        font-weight:bold;
+        color:#fff;
+        mix-blend-mode: difference;
+    }
+    .story-box p{
+        font-size: 16px;
+        font-weight:light;
+        color:#fff;
+        mix-blend-mode: difference;
+    }
+    
+    .overlay{
+        margin:20px auto;
+        border:none;
+        padding:10px 44px;
+        font-size:20px;
+        position:relative;
+        display:inline-block;
+    }
+    .overlay:before{
+        transition:all 0.85s cubic-bezier(0.68,-0.55,0.265,1.55);
+        content:'';
+        width:50%;
+        height: 100%;
+        background: #ebecee;
+        position: absolute;
+        top:0;
+        left:0;
+        border-radius:10px 0px 0px 10px;
+        
+    }
+    .overlay:hover:before{
+        background:#bf5f04;
+        width:100%;
+        border-radius:10px;
+    }
+    /*========End of the Stories========*/
+    /*============Projects Section=======*/
+    .project-container{
+        background: #d85f03;
+        position: relative;
+        overflow: hidden;
+    }
+    .donation{
+        background:#cb5907;
+        color:black;
+        padding:3px 3.5px;
+        position: absolute;
+        right:0;
+        top:70%;
+        transform: translateX(110%);
+        transition: all 1s ease-in-out;
+    }
+    .donation:hover{
+        color:#000;
+    }
+    .project-container:hover .donation{
+        transform: translateX(0%);
+    }
+    .outline{
+        display: inline-block;
+        vertical-align:middle;
+        transform:perspective(1px)translateZ(0);
+        box-shadow: 0 0 1px rgba(0,0,0,0);
+        position: relative;
+    }
+    .outline:before{
+        content:'';
+        position:absolute;
+        border: #7ff677 solid 4px;
+        top:4px;
+        left: 4px;
+        right:4px;
+        bottom:4px;
+        opacity:0;
+        transition-duration: 0.3s;
+        transition-property: opacity;
+    
+    }
+    .outline:hover:before,
+    .outline:focus:before,
+    .outline:active:before{
+        opacity:1;
+    }
+    .grow{
+        display: inline-block;
+        vertical-align: middle;
+        transform: perspective(1px) translateZ(0);
+        box-shadow:0 0 10px #d25212;
+        transition-duration:0.3s;
+        transition-property: box-shadow, transform;
+    }
+    .grow:hover,
+    .grow:focus,
+    .grow:active{
+        box-shadow: 0 10px 10px 5px #d3750a;
+        transform: scale(1.1);
+    }
+    /*====end of Projects Section======*/
+    /*====Team Section======*/
+    .team{
+        background: #fff;
+        padding:60px 0 30px 0;
+    }
+    .team .team-1{
+        text-align:center;
+        margin-bottom:80px;
+        position:relative;
+    }
+    .team .team-1 .pic{
+        border-radius:4px;
+        overflow:hidden;
+    }
+    .team .team-1 img{
+        transition:all ease-in-out 0.4s;
+    }
+    .team .team-1:hover img{
+        transform:scale(1.1);
+    }
+    .team .team-1 .team-info{
+        position: absolute;
+        bottom:-48px;
+        left:20px;
+        right:20px;
+        background: linear-gradient(360deg,#111210 0%,rgba(220, 72, 4, 0.9)35%,
+        rgba(208, 86, 4, 0.8)100%);
+        padding: 15px 0;
+        border-radius: 4px;
+    }
+    .team .team-1 h4{
+        font-weight: bold;
+        margin-bottom:10px;
+        font-size:16px;
+        color:#fff;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .team .team-1 h4:after{
+        content:"";
+        position: absolute;
+        display:block;
+        width:50px;
+        height:1px;
+        background: #d06304;
+        bottom:0;
+        left: calc(50% - 25px);
+    }
+    .team .team-1 span{
+        font-style:italic;
+        display:block;
+        font-size: 13px;
+        color:#fff;
+    }
+    .team .team-1 .social{
+        margin-top: 15px;
+    }
+    .team .team-1 .social a{
+        transition: color 0.3s;
+        color:#290701;
+    }
+    .team .team-1 .social a:hover{
+        color:#fff;
+    }
+    .team .team-1 .social i{
+        font-size:16px;
+        margin: 0 2px;
+    }
+    @media (max-width: 992px){
+        .team .team-1{
+            margin-bottom: 100px;
+        }
+    }
+    /*====end of Team Section======*/
+    /*==========Finished projects======*/
+    .project-item{
+        display: block;
+        position: relative;
+        overflow:hidden;
+        max-width:530px;
+        margin:auto auto 16px;
+    }
+    .project-item .text{
+        display:flex;
+        height: 100%;
+        width:100%;
+        background-color:rgba(208, 114, 7, 0.2);
+        position: absolute;
+        top:0;
+        bottom:0;
+        z-index:1;
+    }
+    .project-item .text .des{
+        color:#fff;
+        margin: auto 32px 32px;
+    }
+    .project-item .text .des h2{
+        font-size:14px;
+        text-transform: uppercase;
+    }
+    .project-item .text .des p{
+        font-weight: light;
+        font-size:20px;
+    }
+    @media(min-width:992px){
+        .project-item{
+            max-width: none;
+            margin:0;
+        }
+        .project-item .text{
+            transition: clip-path 0.25s ease-out, background-color 0.7s;
+            clip-path:inset(0px);
+        }
+        .project-item .text .des{
+            transition:opacity 0.25s;
+            margin-left:80px;
+            margin-right: 80px;
+            margin-bottom: 80px;
+        }
+        .project-item img{
+            transition: clip-path 0.25s ease-out;
+            clip-path: inset(-1px);
+        }
+        .project-item:hover img{
+            clip-path:inset(32px);
+        }
+        .project-item:hover .text{
+            background-color: rgba(183, 67, 5, 0.868);
+        }
+    }
+    /*==========End of the Finished projects======*/
+    /*========== Donation Section======*/
+    .donation-form .input-field .input-group{
+        width: 100%;
+        border:1px solid #dd6408;
+        border-radius: 7px;
+        padding: 5px 10px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    }
+    .donation-form .input-field .input-group .input-group-text{
+        font-size: 16px;
+        background: transparent;
+        border:0;
+        font-weight: bold;
+    }
+    .donation-form .input-field .input-group .form-control{
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        border-bottom: 0;
+        border-top:0;
+        border-radius: 0;
+        border-right: 0;
+        padding: 0 0 0 25px;
+        height: 50px;
+        font-size: 16px;
+        color:#000;
+    }
+    .donation-form .input-field .input-group .form-control:placeholder{
+        font-size: 16px;
+        color: #7a7b7c;
+        font-weight: 400;
+    }
+    .donation-form .input-field .input-group .form-control:focus{
+        outline: none;
+        box-shadow:none;
+    }
+    .donation-form .amount .need{
+        box-shadow: 0  3px 6px rgba(0,0,0,0.16);
+        padding: 18px 27px;
+        border-radius: 7px;
+        border: 1px solid #078ea6;
+        display: block;
+        overflow: hidden;
+    }
+    @media (max-width: 767px){
+        .donation-form .amount .need{
+            display: block !important;
+            margin-top: 15px;
+        }
+    }
+    .donation-form .amount .need .select h5{
+        font-size: 16px;
+        color: #7a7b7c;
+        margin-bottom: 0;
+    }
+    .donation-form .amount .need .fund label{
+        font-size: 16px;
+        font-weight: 400;
+        color:#7a7b7c;
+        margin-bottom: 0;
+    }
+    
+    @media(max-width: 767px){
+        .donation-form .amount .need .fund{
+            width: 33.33%;
+            float:left;
+            margin-top: 15px;
+        }
+    }
+    .donation-btn{
+        margin-top: 50px;
+    }
+    .btn-don{
+        background: #c25c03;
+        color: #fff;
+        border-radius: 50px;
+    }
+    .btn-don:hover{
+        color: #0c5cc5;
+    }
+    /*==========End of the Donation Section======*/
+    .footer{
+        background:linear-gradient(rgba(231, 95, 10, 0.6),rgba(213, 199, 11, 0.4));
+        padding: 0 0 30px 0;
+        color: #000;
+        font-size: 15px;
+    }
+    .footer .footer-top{
+        padding: 60px 0 30px 0;
+    }
+    .footer .footer-top .footer-des{
+        margin-top: -90px;
+        margin-bottom: 15px;
+        background:#cd5008;
+        color:#fff;
+        border-top: 4px solid #0a4388;
+        text-align: center;
+        padding:30px 20px;
+    }
+    .footer .footer-top .footer-des h3{
+        font-size:24px;
+        margin: 0 0 2px 0;
+        padding: 2px 0 2px 0;
+        line-height: 1;
+        font-weight: bold;
+    }
+    .footer .footer-top .footer-des p{
+        font-size:14px;
+        line-height: 24px;
+        margin-bottom: 0;
+    }
+    .footer .footer-top .social-links a{
+        font-size: 18px;
+        display: inline-block;
+        background: #efedec;
+        color:#000000;
+        line-height:1;
+        padding:8px 0;
+        margin-right: 4px;
+        border-radius: 50%;
+        text-align:center;
+        width: 36px;
+        height:36px;
+        transition: 0.3s;
+    }
+    .footer .footer-top .social-links a:hover{
+        background: #052abe;
+        color: #fff;
+        text-decoration: none;
+    }
+    .footer .footer-top h4{
+        font-size:16px;
+        font-weight:bold;
+        color: #000;
+        position:relative;
+        padding-bottom: 12px;
+    }
+    .footer .footer-top .footer-links{
+        margin-bottom: 30px;
+    }
+    .footer .footer-top .footer-links ul{
+        list-style: none;
+        padding: 0;
+        margin:0;
+    }
+    .footer .footer-top .footer-links ul i{
+        padding-right: 2px;
+        color:#000;
+        font-size: 18px;
+        line-height: 1;
+    }
+    .footer .footer-top .footer-links ul li{
+        padding: 10px 0;
+        display: flex;
+        align-items:center;
+    }
+    .footer .footer-top .footer-links ul li:first-child{
+        padding-top:0;
+    }
+    .footer .footer-top .footer-links ul a{
+        color:#000;
+        transition:0.3s;
+        display: inline-block;
+        line-height: 1;
+    }
+    .footer .footer-top .footer-links ul a:hover{
+        color: #d97a07;
+    }
+    .footer .footer-top .footer-newsletter form{
+        margin-top:30px;
+        background: #fff;
+        padding: 6px 10px;
+        position: relative;
+        border-radius: 4;
+    }
+    .footer .footer-top .footer-newsletter form input[type="email"]{
+        border:0;
+        padding: 4px;
+        width: calc(100% - 110px);
+    }
+    .footer .footer-top .footer-newsletter form input[type="submit"]{
+        position: absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        border:0;
+        background: none;
+        font-size:16px;
+        padding: 0 20px;
+        background: #d9640b;
+        color:#fff;
+        transition: 0.3s;
+        border-radius:4;
+    }
+    .footer .footer-top .footer-newsletter form input[type="submit"]:hover{
+        background: #e6eae5;
+        color:#e47a08d1;
+    }
+    
+    .imgfeu {
+        border-bottom: 5px, solid, #000000;
+        border-top: 5px, solid, #000000;
+        font-size: xx-large;
+        height: 250px;
+        width: 50px;
+      }
+      
+      .imgterre {
+        height: 250px;
+        width: 50px;
+      }
+      
+      .imgair {
+        height: 250px;
+        width: 50px;
+      }
+      
+      .imgeau {
+        height: 250px;
+        width: 50px;
+      }
+      
+      .imgnature {
+        height: 250px;
+        width: 50px;
+      }
+      
+      .feu {
+        color: red;
+        text-align: center;
+        font-size: x-large;
+      }
+      
+      .terre {
+        color: rgb(124, 69, 37);
+        text-align: center;
+        font-size: x-large;
+      }
+      
+      .eau {
+        color: blue;
+        text-align: center;
+        font-size: x-large;
+      }
+      
+      .nature {
+        color: green;
+        text-align: center;
+        font-size: x-large;
+      }
+      
+      .air {
+        color: rgb(96, 96, 250);
+        text-align: center;
+        font-size: x-large;
+      }
+      
+      .containerslider1 {
+        overflow: hidden;
+        list-style: none;
+        display: flex;
+        height: 150px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        outline: 5px;
+        outline-color: #000000;
+        outline-style: solid;
+      }
+      
+      .containerslider2 {
+        overflow: hidden;
+        list-style: none;
+        display: flex;
+        height: 150px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        outline: 5px;
+        outline-color: #000000;
+        outline-style: solid;
+      }
+      
+      .containerslider3 {
+        overflow: hidden;
+        list-style: none;
+        display: flex;
+        height: 150px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        outline: 5px;
+        outline-color: #000000;
+        outline-style: solid;
+      }
+      
+      .containerslider4 {
+        overflow: hidden;
+        list-style: none;
+        display: flex;
+        height: 150px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        outline: 5px;
+        outline-color: #000000;
+        outline-style: solid;
+      }
+      
+      .containerslider5 {
+        overflow: hidden;
+        list-style: none;
+        display: flex;
+        height: 150px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        outline: 5px;
+        outline-color: #000000;
+        outline-style: solid;
+      }
+      
+      .air img {
+        margin-left: 250%;
+      }
+      
+      
+      
+      ul img {
+        animation-timing-function: linear;
+        overflow: hidden;
+        height: 100%;
+        width: 50px;
+        padding-left: 60px;
+        animation-name: drive;
+        animation-duration: 60s;
+        animation-delay: 10s;
+        flex-wrap: wrap;
+        animation-iteration-count: infinite;
+      }
+      
+      @keyframes drive {
+        from {
+          transform: translateX(-1800px);
+        }
+        to {
+          transform: translateX(2300px);
+        }
+      }
+      
+    {% endblock style %}
+{% block content %}
+
+<div class="div2"> 
+    
+  <section id="hero" class="d-flex justify-content-center align-items-center">
+      <div id="heroCarousel"class="container carousel carousel-fade"
+      data-ride="carousel">
+    <!--Slide-1-->
+    <div class="carousel-item active">
+        <div class="carousel-container">
+            <h2 class="animate_animated animate_backInDown">
+                <img src="http://www.phpjavaseotraining.com/wp-content/uploads/2020/03/ngo-banner-1.jpg"
+                width=100%>
+            </h2>
+            <p class="animate_animated animate_fadeInUp">
+                Actions speak louder than words! Give today.
+            </p>
+            <a href="#"class="btn hero-btn animate_animated animate_backInUp">
+                Read More
+            </a>
+        </div>
+    </div>
+    <!--End of Slide-1-->
+    <!--Slide-1-->
+    <div class="carousel-item">
+        <div class="carousel-container">
+            <h2 class="animate_animated animate_backInDown">
+                <img src="https://d2aq6dqxahe4ka.cloudfront.net/assets/uploads/challenges/63527927973.jpg"
+                width=100%>
+            </h2>
+            <p class="animate_animated animate_fadeInUp">
+                Do a good deed by giving to those in need
+            </p>
+            <a href="#"class="btn hero-btn animate_animated animate_backInUp">
+                Read More
+            </a>
+        </div>
+    </div>
+    <!--End of Slide-1-->
+    <!--Slide-1-->
+    <div class="carousel-item">
+        <div class="carousel-container">
+            <h2 class="animate_animated animate_backInDown">
+              <img src="http://prabhatngorayagada.com/wp-content/uploads/2020/04/rrtwer.jpg"
+              width=100%>
+            </h2>
+            <p class="animate_animated animate_fadeInUp">
+                Donating to the needy is a great way to improve the conditions in your neighborhood or community. Donating food to the worthy people or organizations helps counter poverty, hunger and at the same time, it can improve harmony, friendliness, and trust among residents.. 
+            </p>
+            <a href="#"class="btn hero-btn animate_animated animate_backInUp">
+                Read More
+            </a>
+        </div>
+    </div>
+    <!--End of Slide-1-->
+    <a class="carousel-control-prev"href="#heroCarousel"role="button"
+    data-slide="prev">
+    <span class="carousel-control-prev-icon fas fa-chevron-left"aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+
+</a>
+<a class="carousel-control-next"href="#heroCarousel"role="button"
+    data-slide="next">
+    <span class="carousel-control-next-icon fas fa-chevron-right"aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+
+</a>
+    
+    </div>
+  </section>
+
+  <!--end of hero Section-->
+  <!--About us-->
+  <!--
+  <section class="mt-5">
+      <div class="container">
+          <div class="row justify-content-center mb-5">
+              <div class="col-md-8 text-center heading-section">
+                  <span>About Us</span>
+                  <h2 class="mb-3">Our Mission | Vision & Plans</h2>
+              </div>
+          </div>
+        -->
+          <!------>
+          <!--
+          <div class="row tabs mt-4">
+              <div class="col-md-4">
+                  <ul class="nav nav-pills nav-fill d-md-flex d-block flex-column">
+                      <li class="nav-item text-left">
+                          <a class="nav-link active py-4"data-toggle="tab"
+                          href="#about-1">About</a>
+                      </li>
+                      <li class="nav-item text-left">
+                        <a class="nav-link py-4"data-toggle="tab"
+                        href="#about-2">Our Beginning</a>
+                    </li>
+                    <li class="nav-item text-left">
+                        <a class="nav-link py-4"data-toggle="tab"
+                        href="#about-3">Our Mission</a>
+                    </li>
+                    <li class="nav-item text-left">
+                        <a class="nav-link py-4"data-toggle="tab"
+                        href="#about-4">Our Vision</a>
+                    </li>
+                    <li class="nav-item text-left">
+                        <a class="nav-link py-4"data-toggle="tab"
+                        href="#about-5">Our Mandate</a>
+                    </li>
+                    <li class="nav-item text-left">
+                        <a class="nav-link py-4"data-toggle="tab"
+                        href="#about-6">Our Plans</a>
+                    </li>
+                  </ul>
+              </div>
+            -->
+              <!----->
+              <!--
+              <div class="col-md-8">
+                  <div class="tab-content">
+                      <div class="tab-pane container p-0 active"id="about-1">
+        <div class="img"style="background-image: url(https://i.postimg.cc/cJQ2hp1Q/about-1.jpg);"></div>
+        <h3><a href="#">About Us</a></h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, nam eum laborum accusantium corrupti inventore repellendus iste exercitationem eveniet voluptas dolor deleniti quis aliquid aut molestias! Corrupti quo aperiam magni!</p>
+                      </div>
+                    -->
+                      <!----->
+                      <!--
+         <div class="tab-pane container p-0"id="about-2">
+            <div class="img"style="background-image: url(https://i.postimg.cc/TY18xNQ6/about-2.jpg);"></div>
+         <h3><a href="#">Our Beginning</a></h3>
+           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, nam eum laborum accusantium corrupti inventore repellendus iste exercitationem eveniet voluptas dolor deleniti quis aliquid aut molestias! Corrupti quo aperiam magni!</p>
+                </div>
+            -->
+        <!----->
+        <!--
+        <div class="tab-pane container p-0"id="about-3">
+            <div class="img"style="background-image: url(https://i.postimg.cc/MpfhMch3/about-3.jpg);"></div>
+         <h3><a href="#">Our Mission</a></h3>
+           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, nam eum laborum accusantium corrupti inventore repellendus iste exercitationem eveniet voluptas dolor deleniti quis aliquid aut molestias! Corrupti quo aperiam magni!</p>
+                </div>
+            -->
+        <!----->
+        <!--
+        <div class="tab-pane container p-0"id="about-4">
+            <div class="img"style="background-image: url(https://i.postimg.cc/HxdKh6jF/about-4.jpg);"></div>
+         <h3><a href="#">Our Vision</a></h3>
+           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, nam eum laborum accusantium corrupti inventore repellendus iste exercitationem eveniet voluptas dolor deleniti quis aliquid aut molestias! Corrupti quo aperiam magni!</p>
+                </div>
+            -->
+        <!----->
+        <!--
+        <div class="tab-pane container p-0"id="about-5">
+            <div class="img"style="background-image: url(https://i.postimg.cc/SQZ5g74t/about-5.jpg);"></div>
+         <h3><a href="#">Our Mandate</a></h3>
+           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, nam eum laborum accusantium corrupti inventore repellendus iste exercitationem eveniet voluptas dolor deleniti quis aliquid aut molestias! Corrupti quo aperiam magni!</p>
+                </div>
+            -->
+        <!----->
+        <!--
+        <div class="tab-pane container p-0"id="about-6">
+            <div class="img"style="background-image: url(https://i.postimg.cc/Vv73MXfp/about-6.jpg);"></div>
+         <h3><a href="#">Our Plans</a></h3>
+           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, nam eum laborum accusantium corrupti inventore repellendus iste exercitationem eveniet voluptas dolor deleniti quis aliquid aut molestias! Corrupti quo aperiam magni!</p>
+                </div>
+            -->
+        <!----->
+        <!--
+                  </div>
+              </div>
+             
+                      
+                  
+              </div>
+          </div>
+      </div>
+  </section>
+-->
+  <!--End About us-->
+  <!---Stories Section-->
+  <section class="mt-3">
+      <div class="stories">
+          <div class="container">
+              <div class="section-title text-center">
+                  <h3>WE ENSURE</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, totam hic id nesciunt quaerat veritatis.</p>
+              </div>
+              <!----->
+              <div class="row">
+                  <div class="col-md-4">
+                      <div class="story-box overlay shadow">
+                          <div class="story-icon">
+                            <i class="fa-solid fa-heart"></i>
+                          </div>
+                          <h2>Health</h2>
+                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ipsam sit consequatur ducimus asperiores quod nobis ad cumque at harum.</p>
+                      </div>
+                  </div>
+                  <!----->
+                  <div class="col-md-4">
+                    <div class="story-box overlay shadow">
+                        <div class="story-icon">
+                            <i class="fa-solid fa-bowl-food"></i>
+                        </div>
+                        <h2>Nutrition</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ipsam sit consequatur ducimus asperiores quod nobis ad cumque at harum.</p>
+                    </div>
+                </div>
+                <!----->
+                <div class="col-md-4">
+                    <div class="story-box overlay shadow">
+                        <div class="story-icon">
+                            <i class="fa-solid fa-children"></i>
+                        </div>
+                        <h2>Good Nurturing</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ipsam sit consequatur ducimus asperiores quod nobis ad cumque at harum.</p>
+                    </div>
+                </div>
+                <!----->
+              </div>
+          </div>
+      </div>
+  </section>
+<!--- End of Stories Section-->
+<!---Projects Section-->
+<section class="project py-5">
+ <div class="container">
+     <div class="row my-3">
+         <div class="col-10 mx-auto text-center">
+             <h1 class="text-uppercase">ITEMS YOU CAN DONATE</h1>
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, provident.</p>
+         </div>
+     </div>
+     <!----->
+     <div class="row">
+         <!--single Project-->
+         <div class="col-10 col-md-6 col-lg-4">
+             <div class="project-container p-5 outline">
+                 <img src="https://i.postimg.cc/2SX7k5DM/Screenshot-533.png" height = "753" width="753" class="img-fluid grow"alt="">
+                 <a herf="#"class="donation text-capitalize">ADD TO CART</a>
+             </div>
+             <h4 class="text-capitalize text-center my-2">Rice</h4>
+             <h6 class="text-center">
+                 Rs. 40/kg
+             </h6>
+         </div>
+         <!--End of Single Project-->
+         <!--single Project-->
+         <div class="col-10 col-md-6 col-lg-4">
+            <div class="project-container p-5 outline">
+                <img src="https://i.postimg.cc/5NHsXG46/Screenshot-536.png" height = "753" width="753" class="img-fluid grow"alt="">
+                <a herf="#"class="donation text-capitalize">ADD TO CART</a>
+            </div>
+            <h4 class="text-capitalize text-center my-2">Weat</h4>
+            <h6 class="text-center">
+                Rs. 20/kg
+            </h6>
+        </div>
+        <!--End of Single Project-->
+        <!--single Project-->
+        <div class="col-10 col-md-6 col-lg-4">
+            <div class="project-container p-5 outline">
+                <img src="https://i.postimg.cc/Dyy85kJw/Screenshot-541.png" height = "753" width="753" class="img-fluid grow"alt="">
+                <a herf="#"class="donation text-capitalize">ADD TO CART</a>
+            </div>
+            <h4 class="text-capitalize text-center my-2">Sugar</h4>
+            <h6 class="text-center">
+                Rs. 50/kg
+            </h6>
+        </div>
+        <!--End of Single Project-->
+        <!--single Project-->
+        <div class="col-10 col-md-6 col-lg-4">
+            <div class="project-container p-5 outline">
+                <img src="https://i.postimg.cc/x1QYgLFy/Screenshot-542.png" height = "753" width="753" class="img-fluid grow"alt="">
+                <a herf="#"class="donation text-capitalize">ADD TO CART</a>
+            </div>
+            <h4 class="text-capitalize text-center my-2">Dal</h4>
+            <h6 class="text-center">
+                Rs. 80/kg
+            </h6>
+        </div>
+        <!--End of Single Project-->
+        <!--single Project-->
+        <div class="col-10 col-md-6 col-lg-4">
+            <div class="project-container p-5 outline">
+                <img src="https://i.postimg.cc/c4JWgd20/Screenshot-543.png" height = "753" width="753" class="img-fluid grow"alt="">
+                <a herf="#"class="donation text-capitalize">ADD TO CART</a>
+            </div>
+            <h4 class="text-capitalize text-center my-2">Chana</h4>
+            <h6 class="text-center">
+                Rs. 80/kg
+            </h6>
+        </div>
+        <!--End of Single Project-->
+        <!--single Project-->
+        <div class="col-10 col-md-6 col-lg-4">
+            <div class="project-container p-5 outline">
+                <img src="https://i.postimg.cc/Hxw90DJt/Screenshot-544.png" height = "753" width="753" class="img-fluid grow"alt="">
+                <a herf="#"class="donation text-capitalize">ADD TO CART</a>
+            </div>
+            <h4 class="text-capitalize text-center my-2">Oil</h4>
+            <h6 class="text-center">
+                Rs. 70/kg
+            </h6>
+        </div>
+        <!--End of Single Project-->
+
+     </div>
+ </div>
+</section>
+<!---End of the Projects Section-->
+
+<!-- Team Section-->
+<section class="team">
+<div class="container">
+    <div class="section-title">
+        <h2 class="text-center">Our Collaborators</h2>
+        <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, repellendus possimus id sapiente sunt ab mollitia cum. </p>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="team-1">
+                <div class="pic">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Collaboration_logo_V2.svg/1280px-Collaboration_logo_V2.svg.png"class="img-fluid"alt="">
+                </div>
+                <div class="team-info">
+                    <h4></h4>
+                    <span></span>
+                    <div class="social">
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="team-1">
+                <div class="pic">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExIWEhUXFxgVFRgYFhUXFxgYGRUWGBYVGhUYHiggGBolHRYVITEhJSkrLi4uFx8zODMtNygtLysBCgoKDg0OGxAQGi0lICUtLS0vLi0tLS0tLy0tLS0rLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAAAAQIGAwUHBP/EAD8QAAEDAgMGBAMFCAEDBQAAAAEAAhEDIRIxQQQFBhNRYSJxgaEykcEHQlJisRQjcoKS0eHw0jNDsiRTg8Lx/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAQFAQMGAgf/xAA4EQABAwIDBAkDAgUFAAAAAAABAAIDBBEFITESQVFhEyJxgZGhscHRMuHwFEIGI1Jy8RVikqKy/9oADAMBAAIRAxEAPwDszGEEEhZarpEC6DVBsNVFjcNyiIo2mbJVhJtdSf4stEMdhsURNjwAASsTWGZjVSdTJuNVM1ARHWyIio4EQLqNG2dkMYW3Kbziy0RFGsJNrqbHAAAmEmOw2PmouYXXGRRFENMzGqy1HAiBcoNURHotRvnftDZL1X+LMMbd59NB3MBFgkAXK2tKxvZebem8KVIB1SoymPzOAnyGZ9FzXfXHu0VpbSigztd583nL0A81VqlQuJc4lzjmSSSfMnNbRHxWh1QB9IXUtq+0LZKYhgqVj+VuEfN5B9lpK/2junwbM0X+9UJ9g0fqqPSZicGyGyQJcYaJMSToArxs/wBnDz/1Npa09GsLvclv6LOyxuq8B8j/AKV5qn2jbUcqdAD+GoT88ahT+0Pagfgof0VP+a3Tfs2pD4q9T0DR+soP2cUT8NerPcM/ssXYs7M3Fa9v2kVT8ezsd/C9zf1BW22L7R9nsKlKozuMLwPcH2Wu2j7NiPh2kdg6n9Q76LVbVwFtjRLQyqPyPg/J4CdQpeYK/wCw8Q7LXP7uuwkmzScDv6XwT6Ld1CCCBmuCbbsNSkcNWm6mfzNInyJsfRdX4E2J9LZKbnknH+8gknC13wAA5DCAY7lYcy2i9xylxsQrBREG9k614i6wDbWPOAG4Otp8jqvQzw56rRHKyQbTCCORupDmlpsU6bgBBssT2kk2U3sxXCkKoFui9rCbnAggFY6QgybIbTIudFJ7sVgiIrXiLp0TAg2SZ4c9UntxXCIoPaSSQFmc4QROiTagAg6KApEX6XREUhBk2UqxmIuhz8Vgkzw56oix8s9ChZ+eEIihyYvOV08eK2SiKhNjqpOZhuERL4O8+ieHFfLRDPFnok92Gw80RHMw2iYRyYvOV1IUgbnVQFUm3WyIpY8Vskowd59FJzMNwosOLPRERhx3y0SNTCIOQzMwOs9lDaK4pAkkBoBc4nQDM/ILlXFvFj9qJZTllHpkand3QdG/Pt6a0la3yBgzW54n45gmnshnrVi38gOf8R9Oqo9OnUrVIAdVqPPdznHqdT5rY8O8PVdrfDfCwGHVCLDsB953b5wurbm3DR2VkUm+L7zzdzvM9OwsthIZoo4a+U3Oi5rvPg3aKGzc95bIIxUxctafvF2RgxIHnNlW131zRUBa4AgiCNCDYg9lxrirch2Su6nfAfFSPVs5T1GR9DqssffVJog3MLTrrPAW9P2jZ8LnfvKMNd1LfuO+QjzaVyZbfhbfB2XaG1PuHwVB+Q5mOosfTusubcLxE/Zcu08zFaIlLDgvnogNEYmmdQcwQdUMdisfNR1PRGPtHqnzMNs0nnDlqpNZiuURY6uzB4OIBzTm0gEHsQc1CqSWFrAGmIb0HyCyGqRb0U3UwLjReXN2gRxWQbG6qleg5hhwg/7rqvbsm8yIDyS3rmR/dbl7BU8LwCM1o947uNMyLt66jz/uuSnw+pw13TUzrt38h/uG8cxn2aqyZOycbEgz/NDuW9p1hAjxA3BUuTN5zuq5sW1lh6t1H1Hdb+ntMgFsEaK+w7Eo6xmWThqPccR6b1DngMR5LLzZtESlgw3zUjSAuNFFrsVirFaEfH2j1TxYbZ6of4ctUMbiuURLlTeYlPnTaM7KLqhFhopmkBfpdEUcGG+aJx9o9UNfisU3+HLVES/Z+/shLnnshEWRzQASAsdIyYN1FjTIkLLWMi10RKtaIsnREiTdRoWmbeaVYSbX8kRRe8gkAwszmiCY0QxwAElYWtM5aoilSdJg3UqoiIsnUcCIF1pd/wC8TRp4W2e+w7DU/Qf4WuaVsTC92gWQLrabJtLKmIBwcWmD2/xmqhvTgSk/aQ9juXSJmpTHXow/dB16advFumnUdVaKRId1Gg1J6jsuh03AAAm6jYfWvqGFxba2XI9m/LesSxtORWLZ9lZTphrGBjWjwgCwRScSYJkJBpnLVZajgRAupqJVhGVlpOKNyDbNnc3/ALjfFSJ/FHwk9Dl8jotzSsb2806tza/kgNlggEWK4C9hBIIIIJBBsQRYgjqkr59onD0f+qpjO1YdDk2pHewPodSqGpLTcXVe9pabFdL+zjfvMZ+zVD4qY8E/ep9PNv6R0V1rCBay4pujYqoc2q13KLTia7X0Go8810jZOJ2hpL2HHlDcj3v8Puq6aupmSFheL7/86d2qmwh5ZmFY6InO6hVdBgWWi3fxAa1UMNMCZiCToTf5KxU3AC9l6gqI527UZuNNCPVbSCNUNaImNFipvJIBMpOaZy1WZ7gQQDK3LCVYQJFlGkMUzfzSoiDe3mvNvTbQwCLuOQ+pWqaZkLDI82A/PHgF6a0uOyNVqd67M1j4abG8dP8ACju7a+W692nMdPJeVziTJMk5pL586qLajp4BsZ3A4cu/eOdldiO7Nh5urVTqTF5BWWq2BIstRubbLGmfNv1H1W0pCDey7yjqm1UIlb3jgd4+OVjvVNLGY3bJTo3mbpVTBgWUq14i/knRMC9lKWtNjAQCQsLXkmJRUaSTAWdzxBvoiKNRoAkWUaN5m6VIQb2Uq14i/kiLJyx0SXnwHoUIiyuqAiBqkxuEyUcmLzldPHitkiIqeLLRDHYbFL4O8ow4r5aIiTqZNxqp8wER6KPMw2iYRyYvOV0RIDB4nWAFyqBvTbTWquecjZo6NGQ+vmSrTxRt0UcAsXnD6C7voPVVjdGyc2q1pEt+J38IzHrYeqoMWldJK2nZyv2nTw15arawWF1Z+GNhFKnjcPG8A+Tfuj6/Lots6mSZGRTw4r5aI5mG0TCuoYWwxiNug/L9+q1k3zUjVERrkoMYWmTknydZ7rHtG0tDXF3haAXE9ALn9FtWFlecWSKZw2Kq7+MaYa4sY4vyaHAAHuSCfkvDtPGNRzAG02tfq7NsdmnXzUR1dAP3X7FNbh1Qf227bK5VaOOZAc1wgg5ERBBC5rvjhNtCuHNOKi6S1pzDhEsPVomx9D39u08V7Q4NDSKeHPCPiPfFNuyx7TvF9eHPM9ABAHWPkoVXijRE5sd7nK/qfC68zYe+MNdJbX88VgQhC5pYUqdQtILSQRkQYI9Vetz1XVaTHFwc6PEbTPcaFUNbbhvb20ahL5Ac3D2mQZPv81Y4bU9DNY6HLXTnw5d68PbkrvzABHooNpkGTonyZvPdQrbSA0k2C6skNBJystAzUNv2trWzroOqrdWoXEk3JWTaa5e6T6DoFgXC4piRq5LN+gac+Z9huHO6uaan6NueqFOnTLiABJKKVIuMASf9urFsWwBjbG5zMf7ZeMNw19W+5yYNT7Dn6eAKoqBEOfBV1ri0yLEe0Kz0qwqMBGt/7haTfNOH4gIDr+uv0WfcW0QXN9R+h+issLe6jrn0rtDp2jMHvHnZaKkCWESD84rcM8OeqT24jIR8faEw7DbPVdYq1NtQAQdFAUiL9Lp8qbzmnzptGdkRNzw4QFGn4c9UYMN80Tj7QiKfPCFD9n7oREhVJt1UnMw3Ck9gAJAWOk6TBuiJt8eenRDnYbDzunW8MRZOk2RJuiIFIG51UOaTbrZJ7yCQCsppjOLoipfFlWa+AZMaB6m59i35L38HbIC17zqQB5C59yPkq/vGrjq1HdXH5TA9oW73bv2lSpMYA4uE4iAIJJJ1PdczTTRurXTSEAC9r/8AEf8AVbnA7NgrO52Gw87qQph1zqq27itv/tF3m6P0BXnqcVv+7Ta3zcT9Ard2J0o/d4B3wtewVaeYcvRanifaaVOi9jnQ6o1wYLmTHYWGV1oNo3/Xd94M/hEe5krR7e8kguJcTmSST8yokuLMd1I2nPefjUqXRQB8zQ48/DNeVCElVrqE17dm+Eeq8SuHB26qVSkajxiIcWwfhsActc9V6ZTuqHbDbX5qvxM2gvzHoVoEK7bbuanWIkYDES2BYCwIyK8zOFqbbue546Wb8zmtj8HqA6zbEcb28tfC6oRIFUKlQNEuIA6kwtXtu+mwRTkn8WQHcalWbi7g41Aa2zSXNHipSTIjNk5H8uvnnzsjTJWtJgkLetKdo8NB8nvt2KHPUPHVAsr/ALh+0HDTwbS1z3NHhc0Al46OBIAd31/We08b0KpDcNSm38wBv/KSufJK0qaSOojMb72PA2+futMVTJGQRbLiun0arXgOa4OByIMhZqVMuIAEkrne5d6uoPmfAfjb2/EO4XZN17IGtuJcYlci7+HpG1IYTePXa3202f7vK2fJXUeItfFtW63D37PfJT2DYmtb31PVZuaRa1rIqugwLKbGAgEhdVHGyJgYwWA0CgucXG5Xi3tsoNIkZt8X9/aVpNhqYajTpMHyNvqrFJd4SbGx9VViItqFy2Pgw1EVQ3X3YQR35qxo+sxzD+XVud4cteqGtxXPlZQ2V2MAm9gfmE6pgwLLrLg5hVqDUIsNFM0gL9LoY0ESQsTXkmJRFNr8Vim4YcteqdRoAkWUaPimboiXPPZCzcsdEkRYGAyJBWWqQRa/khzwRA1UWNwmSiIoWmbeaVa5tfyUqniy0Tpuw2KIim4QJIlYTIvBgX+Sm6mSZGqW1VAWPAzwu/QrByRc2BQgKVOmXfCC7yBP6LgmZgKUVFC91PdVc5UnDzGH/wAoXto8M13XOFo7mT7BSWUk7/pYfA+6xtBaRY9ppyLZ/qrZs/CzPv1S7s1uH3Mrc7Fu2nRMtYB3zPzN1Pgwicm7rN8z5Zeayyo6Nwe3ULlpCFb+PKDIZUa0BxcWuMQTaRJ1yKqCxUQmF5YTddJTTieMSAWupU6ZcQ1oLibAC5JXRtw7vNCi1hz+J3ST37CB6KvcBialUQJwgj53/UK8cwRGuSs8NgAb0u83Hn9lUYpUOLuh3Cx7cva6T3Ai2fZQo2N7eaGMIMnJSqHFYK0VQlVvlfyXE+J6hdte0EiDzXj+k4R7ALttM4c1zf7QOHHB7trpCWOjmDVrojHGrTF+hk5G3tjgDmtE4JbkqQhJC3qGm1xBBBggyD0IyK65wbvt+10JeP3lN2BxAs6wIdAyN7+Xdct3Zu6rXeG06bn3AOEEhoJzc7Jo7ldr3bsNLZ2YKbBTbMwLydSTmTlcrXIRaykU7Te+5eumQBe3msTwZMAqbm4jIyUmvAEHRaVLUnOEGCFVNsbD3D8xVmZTIudF5qmw0nknDLiZN3D6qpxehkrI2tjtcG+dxla24FSaaYROJN+5GxGaVONBFuxj6L2UjAvbzWPZ6YpiMhpr/uak9uIyFYwtcyNrXagAHttn5rQ83cSFCoDJiVmc4QbjJJrwBB0UBTIM+q2ryimIN7DupVrxF/JD3hwgZpU/DnqiLHhPQ/IoWfnBCIocqLzkmX4rZKIqk26qTmYbhESHg7ygtxXy0Q3x56dEOdhsPO6Ijm4bRkk+jY30UxSBudVBtUm3oiLmhFl0nZ3Q1rtHAHppKoO8qOCrUb0eY8pke0K57hqcyhTnQYf6fD9Fz2C/y5ZI99v/ACbe4W6TMXXuLcV8tEczDaJhDnYbDzumKYdc6roVpS5Ws90+Zitko805eik6nhuERVfjtzW0WAuGIvkDUgNcCfK4VHDx5qzfaBVY6pTH/cDTPTCT4fWZ/wBhVRa5MOin67iQeVvcFaP9dqKVxiYGlo4g3z7CPRWjgjaMNd0kQaZGgviaR9VfOVrPdcZWx3Pvmrs7gWOJb95hPhcNbaHutsNF0LNhpv2rTLjXTybcjLaDI8OR+V1bmYrREpBuC+eixbNUa5jarDIc0ObPQj/KdeuA0l9gL2znovLnBoLnGwGqmjPRZD4u0LS77r3FMGzc/M/2H6pP3u/7owjvf3Wve4kkm5JuuVxXGIp4TDDfM5mxGXLtPHcrKmpXMftOVT4h4eiatEWzcwad2j6fJVzY9nNSoym2AXvawE5S5waCY0uunLcbJw9s9Nwq8lnNF8UfeOZHfup+A4lNMx0UgvsgWdv5A8dDY65WO5Q6+iY1wezK+o9x7rDwpuH9ipFpfzHOdicQIAsAAPln3W6Pj7QhrsVj52Q7wZa9Vek3WgAAWCYfhtmlyZvOd02sxXKiapFullhZUubNozXJd+OxbRWP53+ziB+i6ttRbTY6oTZjS4+glcde8mSczc+eZW+AaqqxRws1vafZdN4RpH9kpD+I/wBT3Ee0Lch2G2eq8u7aPJo0mahrQZ6hon3leprcVz5WWkm5VlG3ZYG8APRLlTec0+dNozsomoRYaKZpAXva6wvaiGYb5o+PtCGvxWKHDBlr1REcg9UJc89kIim5gAkBQpukwbhRYDImVlqkRb2REqvhysikMQk3Soaz7pVs7eyIk95BgFZDTAExfNOmRAmJWFoM65oiqPFNGK2L8bQfUWPsGr3cI7V4X05uDiHkbH3A+a93FWyh9HEIJYcXpk76H0VX3LtnKrNefh+F3kc/lY+i52U/pa/bP0uz8dfA5nkto6zbK/UhiEm6hUeQYBgJ1rm3TRTYRF4nuuiWpBpiJi+ahTcSYNwogGdYlZahEWz7Ii57x5tDTtAY1mEsbDnfixAOA8hOfc9FW1YOOXu/aAHNwgNAaYu4ZkzrBJCr6mM+kLnKo3md2oQhRXpaF7Nn3nWYAGVntAyAe6P6ZhWPde1VqlOary+TLQQLAWmwvN1WNi2c1HtaNTfsNSrgxoAAFgLBcv8AxNWCOMU7dXZn+0aDvPkOBXQ4DA57zM4nZGQzOv2HqCmhCFxC6tTo1MLg6Jgiy3Ozb7oPOEVm9IJwnyh0LRqlV3S5x6mfnddb/C+07pWbuqe839gqLGqjoNggXvfwFvc+a7G8ACWopeLO65Lu/etaj/06jmj8Obf6TZWfYeN5gVqcfmbl6sP0PoupdE4aKsixCJ2Tur6eKuL3QYFgptYCJIXm3bvClVbNOo1/W9x5g3CyPBkxK1KaCCLhaHjPeBZsxbN6hDfTN3sI/mVJ3HsvNr02aFwJ/hb4newj1Wx403lztoLWnwU/AO7vvn5wP5VtPs92D467hb4GT6Fx/wDEfNSB1I7qnkP6iqDRoPQZnzVzp+KZuo1DhMCydbSPb/ClRNr+6jq5QymCJIusbXkmJSqAyYlZnEQcphESqNAEixUaXizulSmb5d1KtpHsiKfJb0QvPB7+6ERZnPBEDVRY3CZOSOVF5yTL8VskRFTxZXhOmcIgqI8HeUFuK+WiIoupkmRkVkLwRGuSjzcNoyRyYvOV0RRFL8QsQQfWyoe27vcysaTQXX8ECSQcj/fyKv5fitkomGeI9M9YF1CraJtUACbWOvLeF6a7ZXm3O17KTW1YDh0M20k9f7L0vYSZGSp+9eLzjHJb4QRJdm4TkB90d81adg29lSm17Lgj1B1B7hbKeaJ38tjr2trv3d63TU0sTQ54tfy7eC9RqCI1yUGMIMnJPla+qfMxWyUlR1qOLMLtlqEgGAIJAsS4ARPmuZmkdPor7xxVwUWsm73+zRJ9y1UdVtTiEsEuyy1rb/wbrKwgwanrIduW97mxBtl4Ea33KOz7M57msbm5waJykkAfqr1w/wALMonHVcKlTQAHC05a/Ee6rHDrJ2miOjw7+kF30XTOVrPdSqSslqGEusM7ZX4cyVBqsJp6SRuxcm1+sQd54ABa/ad0MIJbTYx34g1oPlIvC1m07A5kfenoDY9FZDUxW6pBuG+eiiV2FQ1Z2nXDrWuO2+mh1K2w1Doshoqm5pFiIKSs1bYmVHYiL5G5v8l4mbqDXyTIFwI9iVz0uAVLX2YQQTrwHEjLyupza2MjNabeOxVuW7BTLiRFi20jO50/VUqvQcw4XtLD0cCD8iuxcubz3WDa9np1m4KjA8H8Qy7jUei63D6WKiYWR3Nzck68vBUVfE6rcHE2sLAWy+c1yJCuW9+CY8VB/wDI76P/AL/NVHatlfTdhqMLHdCPcHUdwrNrw7RUcsEkX1jv3ePyoU6haQ5pLSMiCQR6hb/ZeMNobTc1xD5aQ1xEOaYsZFnR3Cr6FktB1Xhkj4/pNlPZtndUe1jRLnEAeZ1PbVdZ2HZG06TKTLhoA6T1d5kkn1VZ4H3RhHPePE8RT7NObvM/p5q3BmG+ajyvubK3oINhm2dT6ffVOn4c7Sk9uIyEHx9oTDsNs9VqVgm2oAIOYWNtMgzpmpGlN+qZqzaM7IiKjg4QM0qfhzsgMw3zR8faERZOc3qkocg9UIiBUJt1TczDcJvpgCQLqDHYjBuERNvjztCHOw2HmnV8OVkUhiEm6IgUgb9UuYTbrZRe8gwDZZCwATF80RJzMNwhpxZ2joo03EmDcKVQYcrIipHF24sDjWpjwOu8fhJOfkfY+a1m4d7nZ36upu+Nv/2Hce66QKYeDiGLQzlEZQqHxJw+aLi+mCaXuzsfy9/mqerpnRP6aLtPL7cfjS7o6pkzOgm7Bz4DtG4++t42bbG1GhzCHNdkR/tisxp4bhcy3Nvd+zulviafiacj3HQ91fd172p12y12QlzTAc3zb075KbS1bJhbR3D4UGron05vq3j8/liqnxvteOuG6MaB6u8R9sKryz7w2nmVH1PxOJHkTYfKFgVDNJ0kjn8T/jyXRU8fRxNZwHnv81YOB9nx1ydGsJ9SQB7Eq+cw5eiqfAlIhtV/Utb/AEgk/wDkFb8AiYvmrzD27MA53K5/En7VQeVh5KJp4bjRJrsVj5qNN5JgmQp1RhuLKaoCTjgy1TazFcopjFndRqOIMCwRE+YRb0UuWG36IFMRMXzWNjyTBNkRSa7FY+a8m9qVHlnnBppxJxadwcwfK6W9t50tnbie6Ccmi7ndgPrkudb937U2l3iOFg+FgyHc9StjIy4qJU1TIhY5nh88l4dsNPG7lBwZPhDjJjutxwtuPnvxvH7ppv8AnP4fLr8vKHD24HbQcTpbSBudXflH99F0jZtmY1jWtaGgAAAZBbZJLZDVQKOk6Q9I8ZcOP2/NNZ8oNEjTJIPxWKiyoSYJU6jcIkWKjK6Sd4MteqbW4rnySpeKZvCVR2EwLIiZqEW6KRpAX6XQxgIk5rG2oSYmyIpB+KxQ4YMtU6jQ0SLFKl4s7oiXPPQIWTkt6fqhEWFkyJlZKsRbPsm+oCIBuoMbhMmwRE6Gs+6VbO3spVfFleE6bsIg2RE2RAmFhbM65pvpkmQLLIXgiNckRFSItn2UaPf3SptLTJsFKocWV0RRrZ29lNoEQY7ylSOEQbKD2EmQLIiqW/OFrl9AdzT0/lP0/wDxVXxMcc2OEg5gjQgrrhqCIm+S1e8dy06w/eNg6PEBw6X18jKrKjDmuO1HkeG77eitabE3MGzLmOO/v4+q5ohb/ePClZkmn+9b2s8fynP0+S0L2FpIcC0jMEQR6FVEsT4jZ4sruKaOUXYb/niujcIUQzZWTEuxPPq4x7ALZXnWJXOti4gr0wGh4c0AANcAQAMhNj7rcUON3AQ+k092uLfYg/qriCugawNNxYW0VJUYdUOkc8WNyTqPeyub4i2fZY6Od/dVelxlTBk03+hafqFkrca0iLU6nrh/up
+                    P6 yD+pRf0FT/R6Ky1u3spU4i+fdU1/GpHwUB5uf9APqt3TrPr7LzGeF7qZjDo8SCBPcQvUVTFK7ZYfI+68TUs0Ldp7fMexXr23a2UhiqPDGzaTE+Q19FWN78ai7dnZ/wDIRH9LD9fkqdVqueZc5z3HUkknte63e7OFNoqwXN5LPxOF/RufzhT+ja3NxXPmtmmyiHhmfHQfma0teu+o7E9xe46m5PQf4Vp3Fwi50PriG5in94+cfCO2fkrFuncNCgP3YxVNXn4u8aNHl7rb0vDnaV5fLuat0FAAdqXM8Pnj6dqWzsa1obAaBYCAIGgA6KD5kxKlUaXGRcKbXgCCtKsk3xBiFjpZ390mUyDJCnUcHCBcoiK2keydHK/ulS8OdpUXtxGRcIii+ZMSs7og5ZKLHgCDmsbaZBmLZoidKZvl3Uq2keyKjg4QLlKl4c7Iix37+6Fn5zev6oRFAUyL9E8eK2SEIiTfBneUFuK4tohCImKkW6KPLIv0umhETx4rZKIGDO8poREFuK4tomH4bdEIREuWc/VMvxWQhESAw3N1h2rY2VhD2NdFvEAfkdEIWDmLFNotIIWl2rhPZzljp/wukfJ0n3WvrcEP+7Waf4mke4JTQobqSB7Q7ZA7Lj0U1tdUNNtsntsfULxng2vMB1I/zO/4pngvaPxUh/M7/ihC9f6XBff4raMTn5eCzUOCqjs6zB5Nc79YVn3Rsf7PTFLEXwSZgDO8QhC2Mo4oTdgz7SocldNOLPOXYp7LuqlSJdTpsaTJJA8V755r1mpit1QhSCtAAAsEg3Dc30Q7x5WhCFhZTx4bZqJpk363QhETNWbRmgMw3N0IREHx5WhMOw2N9UIREjTJv1Qa02jOyEIiAzDc3QTjytCaERR/Zz1CEIRF/9k="class="img-fluid"alt=""
+                    width=900px>
+                </div>
+                <div class="team-info">
+                    <h4></h4>
+                    <span></span>
+                    <div class="social">
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="team-1">
+                <div class="pic">
+                    <img src="https://cdn3.iconfinder.com/data/icons/collaboration-2/500/yul670_8_team_collaboration_family_woman_business_logo_hand-512.png"class="img-fluid"alt=""
+                    width=170px>
+                </div>
+                <div class="team-info">
+                    <h4></h4>
+                    <span></span>
+                    <div class="social">
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="team-1">
+                <div class="pic">
+                    <img src="https://www.kindpng.com/picc/m/56-562222_logo-for-collaboration-norms-values-and-symbol-hd.png"class="img-fluid"alt=""
+                    width = 190px>
+                </div>
+                <div class="team-info">
+                    <h4></h4>
+                    <span></span>
+                    <div class="social">
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+    </div>
+</div>
+</section>
+<!---End of finished projects Section-->
+<!---Donation Section-->
+<section class="mt-5">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="text-center mb-55">
+                <h3>Make a Donation</h3>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+        <form class="donation-form">
+           <div class="row align-items-center">
+            <div class="col-md-4">
+         <div class="amount">
+       <div class="input-field">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span></div>
+                         
+        <input type="text" class="form-control"placeholder="10,000"
+        aria-label="Username">
+                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!----->
+                    <div class="col-md-8">
+                     <div class="amount">
+                   <div class="need d-flex align-items-center
+                    justify-content-between">
+                    <div class="select">
+                        <h5>Select Amount</h5>
+                    </div>
+                    <div class="funds">
+                        <input type="radio"name="radio-group">
+                        <label for="fund-1">10</label>
+                    </div>
+                    <div class="funds">
+                        <input type="radio"name="radio-group">
+                        <label for="fund-2">50</label>
+                    </div>
+                    <div class="funds">
+                        <input type="radio"name="radio-group">
+                        <label for="Other">Other</label>
+                    </div>
+                
+                
+                </div>
+                   
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="donation-btn text-center">
+                <a href="login.htm"class="btn btn-don" >Donate Now</a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!---End of Team Section-->
+<!--Finished projects-->
+<section>
+<div class="container">
+    <div class="text-center">
+        <h2 class="mb-5">What we do</h2>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-lg-6">
+            <a class="project-item"href="">
+                <span class="text">
+                    <span class="des">
+                        <h2>Lorem Ipusm</h2>
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, sit.
+                        </p>
+                    </span>
+                </span>
+                <img src="https://i.postimg.cc/HxLPhWq3/Screenshot-526.png"class="img-fluid"alt="">
+            </a>
+        </div>
+        <!---->
+        <div class="col-lg-6">
+            <a class="project-item"href="">
+                <span class="text">
+                    <span class="des">
+                        <h2>Lorem Ipusm</h2>
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, sit.
+                        </p>
+                    </span>
+                </span>
+                <img src="https://i.postimg.cc/HxLPhWq3/Screenshot-526.png"class="img-fluid"alt="">
+            </a>
+        </div>
+        <!---->
+        <div class="col-lg-6">
+            <a class="project-item"href="">
+                <span class="text">
+                    <span class="des">
+                        <h2>Lorem Ipusm</h2>
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, sit.
+                        </p>
+                    </span>
+                </span>
+                <img src="https://i.postimg.cc/HxLPhWq3/Screenshot-526.png"class="img-fluid"alt="">
+            </a>
+        </div>
+        <!---->
+        <div class="col-lg-6">
+            <a class="project-item"href="">
+                <span class="text">
+                    <span class="des">
+                        <h2>Lorem Ipusm</h2>
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, sit.
+                        </p>
+                    </span>
+                </span>
+                <img src="https://i.postimg.cc/HxLPhWq3/Screenshot-526.png"class="img-fluid"alt="">
+            </a>
+        </div>
+        <!---->
+    </div>
+</div>
+</section>
+<!---End of Donation section Section-->
+<footer class="footer mt-5">
+<div class="footer-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-des">
+                    <h3>Bangalore Food Bank</h3>
+                    <p class="pb-3">
+                        <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, molestias.</em>
+                    </p>
+                    <p>lorem Ipsum Street <br>
+                    SP 12345, Bangalore <br><br><strong>
+                        Phone;
+                    </strong>
+                    +55 61 1234 5678 9<br>
+                    <strong>
+                        Email:
+                    </strong>
+                    test@info.com<br>
+                
+                </p>
+                <div class="social-links mt-3">
+                    <a href=""><i class="fab fa-twitter">
+
+                    </i></a>
+                    <a href=""><i class="fab fa-facebook">
+                        
+                    </i></a>
+                    <a href=""><i class="fab fa-instagram">
+                        
+                    </i></a>
+                    <a href=""><i class="fab fa-linkedin">
+                        
+                    </i></a>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 footer-links">
+                <h4>About Us</h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 footer-links">
+                <h4>Useful links</h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="">Lorem Ipusm</a>
+
+                        
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+                <h4>Our News Letters</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <form>
+                    <input type="email" name="email">
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+
+{% endblock content %}
